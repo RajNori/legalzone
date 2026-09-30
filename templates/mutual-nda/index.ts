@@ -68,7 +68,7 @@ function partySection(n: 1 | 2): FormSection<NdaData> {
 const sections: FormSection<NdaData>[] = [
   {
     id: 'agreement',
-    title: 'Agreement',
+    title: 'Agreement Details',
     items: [
       {
         kind: 'field',
@@ -85,7 +85,7 @@ const sections: FormSection<NdaData>[] = [
   },
   {
     id: 'term',
-    title: 'MNDA Term',
+    title: 'NDA Term',
     items: [
       {
         kind: 'choice',
@@ -101,7 +101,7 @@ const sections: FormSection<NdaData>[] = [
   },
   {
     id: 'confidentiality',
-    title: 'Term of Confidentiality',
+    title: 'Confidentiality',
     items: [
       {
         kind: 'choice',
@@ -117,7 +117,7 @@ const sections: FormSection<NdaData>[] = [
   },
   {
     id: 'law',
-    title: 'Governing Law & Jurisdiction',
+    title: 'Governing Law',
     items: [
       {
         kind: 'field',
@@ -138,7 +138,7 @@ const sections: FormSection<NdaData>[] = [
   },
   {
     id: 'mods',
-    title: 'MNDA Modifications',
+    title: 'Modifications',
     items: [
       {
         kind: 'field',
