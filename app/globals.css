@@ -97,4 +97,14 @@ input:focus, textarea:focus { outline: 0; box-shadow: var(--ring); border-color:
   .doc-table th, .doc-table td { padding: 6px; font-size: 13px; }
   .doc-break { margin-inline: 0; }
 }
-@media print { .doc-stack::before { display: none; } .gen-header, .form-pane { display: none; } .generator { display: block; height: auto; } .gen-body { display: block; } .doc { box-shadow: none; } }
+@media print {
+  @page { margin: 16mm; }
+  body { background: #fff; }
+  .gen-header, .form-pane { display: none !important; }
+  .generator, .generator[data-view] { display: block; height: auto; min-height: 0; }
+  .gen-body { display: block; }
+  .generator[data-view] .preview-pane { display: block; overflow: visible; padding: 0; }
+  .doc-stack::before { display: none; }
+  .doc { max-width: none; padding: 0; border: 0; box-shadow: none; }
+  .doc-break { break-before: page; border: 0; margin: 0; }
+}
