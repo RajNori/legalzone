@@ -66,6 +66,7 @@ function Block({ block }: { block: DocBlock }) {
 export function DocumentPreview({ blocks, termsSource, termsLinks, attribution }: Props) {
   const terms = parseTerms(termsSource, termsLinks);
   return (
+    <div className="doc-stack">
     <article className="doc" aria-label="Document preview">
       {blocks.map((b, i) => (
         <Block key={i} block={b} />
@@ -87,5 +88,6 @@ export function DocumentPreview({ blocks, termsSource, termsLinks, attribution }
       </ol>
       <p className="doc-license">{renderInline(attribution)}</p>
     </article>
+    </div>
   );
 }

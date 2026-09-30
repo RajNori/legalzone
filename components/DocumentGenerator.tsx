@@ -60,6 +60,9 @@ export function DocumentGenerator<T extends object>({ template, termsSource }: P
             </button>
           )}
         </div>
+        <button type="button" className="btn-primary" onClick={() => window.print()}>
+          Download PDF
+        </button>
         <div className="view-toggle" role="tablist" aria-label="Mobile view">
           <button role="tab" aria-selected={view === 'form'} onClick={() => setView('form')}>
             Form

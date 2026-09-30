@@ -22,6 +22,9 @@ input[type='radio'] { accent-color: var(--accent); }
 .badge { font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 999px; }
 .badge.warn { background: rgba(168,111,82,.12); color: var(--clay); }
 .badge.ok { background: rgba(128,150,136,.2); color: var(--ok); }
+.btn-primary { height: 36px; padding: 0 16px; border: 1px solid var(--accent); border-radius: 8px; background: var(--accent); color: var(--panel); font: inherit; font-size: 13px; font-weight: 500; cursor: pointer; }
+.btn-primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+.btn-primary:focus-visible, .link-btn:focus-visible { outline: 0; box-shadow: var(--ring); }
 .link-btn { background: none; border: 0; color: var(--accent); cursor: pointer; font: inherit; }
 .view-toggle { display: none; }
 .view-toggle { gap: 4px; padding: 4px; background: var(--panel); border: 1px solid var(--border); border-radius: 10px; }
@@ -50,6 +53,9 @@ input:focus, textarea:focus { outline: 0; box-shadow: var(--ring); border-color:
 .option label { display: flex; align-items: center; gap: 8px; font-weight: 400; }
 .option input.years { width: 72px; }
 
+.doc-stack { position: relative; max-width: 780px; margin: 0 auto; }
+.doc-stack::before { content: ''; position: absolute; left: 14px; right: 14px; top: 14px; bottom: -10px; background: var(--panel); border: 1px solid var(--border); border-radius: 3px; box-shadow: 0 1px 2px rgba(23,32,28,.04); }
+.doc-stack > .doc { position: relative; }
 .doc { max-width: 780px; margin: 0 auto; background: var(--panel); border: 1px solid rgba(216,211,200,.8); border-radius: 3px; padding: 72px 80px 64px; box-shadow: 0 1px 2px rgba(23,32,28,.05), 0 18px 40px -20px rgba(23,32,28,.22); font: 15.5px/1.7 var(--serif); color: var(--text); }
 .doc h1 { font-size: 32px; line-height: 1.2; letter-spacing: -.01em; text-align: center; margin: 0 0 24px; }
 .doc h2 { font: 600 11px var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin: 32px 0 12px; }
@@ -87,7 +93,8 @@ input:focus, textarea:focus { outline: 0; box-shadow: var(--ring); border-color:
   .brand { flex: 1; }
   .form-pane { padding: 28px 20px 48px; }
   .doc { padding: 36px 24px 40px; }
+  .btn-primary { order: 2; }
   .doc-table th, .doc-table td { padding: 6px; font-size: 13px; }
   .doc-break { margin-inline: 0; }
 }
-@media print { .gen-header, .form-pane { display: none; } .generator { display: block; height: auto; } .gen-body { display: block; } .doc { box-shadow: none; } }
+@media print { .doc-stack::before { display: none; } .gen-header, .form-pane { display: none; } .generator { display: block; height: auto; } .gen-body { display: block; } .doc { box-shadow: none; } }
