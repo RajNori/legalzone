@@ -36,7 +36,20 @@ export function DocumentGenerator<T extends object>({ template, termsSource }: P
 
   const onChange = (name: string, value: string) => setData((d) => ({ ...d, [name]: value }));
   const onBlur = (name: string) => setTouched((t) => (t.has(name) ? t : new Set(t).add(name)));
-  const revealAll = () => setTouched(new Set(Object.keys(errors)));
+  const [revealTick, setRevealTick] = useState(0);
+  const revealAll = () => {
+    setTouched(new Set(Object.keys(errors)));
+    setView('form');
+    setRevealTick((n) => n + 1);
+  };
+
+  // After the errors render, bring the first invalid field into view and focus it.
+  useEffect(() => {
+    if (!revealTick) return;
+    const first = document.querySelector<HTMLElement>('.form-pane [aria-invalid="true"]');
+    first?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    first?.focus({ preventScroll: true });
+  }, [revealTick]);
 
   return (
     <div className="generator" data-view={view}>
