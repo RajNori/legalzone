@@ -1,14 +1,9 @@
-import Link from 'next/link';
+import { readFile } from 'node:fs/promises';
+import path from 'node:path';
+import { MutualNdaGenerator } from './documents/mutual-nda/MutualNdaGenerator';
 
-export default function Home() {
-  return (
-    <main className="home">
-      <h1>LegalZone</h1>
-      <ul>
-        <li>
-          <Link href="/documents/mutual-nda">Mutual Non-Disclosure Agreement</Link>
-        </li>
-      </ul>
-    </main>
-  );
+export default async function Home() {
+  // Standard Terms are kept verbatim (Common Paper Mutual-NDA.md); only cover page values are substituted.
+  const termsSource = await readFile(path.join(process.cwd(), 'templates/mutual-nda/standard-terms.md'), 'utf8');
+  return <MutualNdaGenerator termsSource={termsSource} />;
 }

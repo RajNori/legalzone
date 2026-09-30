@@ -4,7 +4,7 @@ Interactive legal document generators (Next.js, TypeScript).
 
 ## Mutual NDA (KAN-1)
 
-`/documents/mutual-nda` — form on the left, live preview on the right (Form/Preview toggle on mobile).
+`/` (also reachable at the legacy `/documents/mutual-nda`, which redirects) — form on the left, live preview on the right (Form/Preview toggle on mobile).
 Based on the [Common Paper Mutual NDA](https://github.com/CommonPaper/Mutual-NDA) v1.0, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
 ### Architecture

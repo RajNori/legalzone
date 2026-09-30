@@ -41,7 +41,15 @@ export function DocumentGenerator<T extends object>({ template, termsSource }: P
   return (
     <div className="generator" data-view={view}>
       <header className="gen-header">
-        <h1>{template.title}</h1>
+        <div className="brand">
+          <span className="brand-mark" aria-hidden="true">L</span>
+          LegalZone
+        </div>
+        <div className="crumbs">
+          <span>Documents</span>
+          <span aria-hidden="true">/</span>
+          <strong>{template.title}</strong>
+        </div>
         <div className="gen-status">
           <span className={remaining ? 'badge warn' : 'badge ok'}>
             {remaining ? `${remaining} required field${remaining === 1 ? '' : 's'} remaining` : 'All required fields complete'}
